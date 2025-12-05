@@ -1,0 +1,47 @@
+package xmodeling.contents;
+
+import java.text.MessageFormat;
+
+public class ProjectFileContent implements FileContent {
+    @Override
+    public String getContentFor(String projectName, String projectClass) {
+        return MessageFormat.format(
+            """
+            <?xml version="1.0" encoding="UTF-8"?>
+            <projectDescription>
+                <name>{0}</name>
+                <comment></comment>
+                <projects></projects>
+                <buildSpec>
+                    <buildCommand>
+                        <name>org.eclipse.xtext.ui.shared.xtextBuilder</name>
+                        <arguments>
+                        </arguments>
+                    </buildCommand>
+                    <buildCommand>
+                        <name>org.eclipse.jdt.core.javabuilder</name>
+                        <arguments>
+                        </arguments>
+                    </buildCommand>
+                    <buildCommand>
+                        <name>org.eclipse.pde.ManifestBuilder</name>
+                        <arguments>
+                        </arguments>
+                    </buildCommand>
+                    <buildCommand>
+                        <name>org.eclipse.pde.SchemaBuilder</name>
+                        <arguments>
+                        </arguments>
+                    </buildCommand>
+                </buildSpec>
+                <natures>
+                    <nature>org.eclipse.sirius.nature.modelingproject</nature>
+                    <nature>org.eclipse.jdt.core.javanature</nature>
+                    <nature>org.eclipse.pde.PluginNature</nature>
+                    <nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
+                </natures>
+            </projectDescription>
+            """,
+            projectName);
+    }
+}

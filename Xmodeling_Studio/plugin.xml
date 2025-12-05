@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="4.37"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="XmodelingPlugIn.category.wizards"
+            name="Xmodeling">
+      </category>
+      <wizard
+            category="XmodelingPlugIn.category.wizards"
+            class="xmodeling.wizards.XmodelingProjectNewWizard"
+            icon="icons/x-modeling-small.png"
+            id="XmodelingPlugIn.wizard.new.Xmodeling"
+            name="Xmodeling Project">
+      </wizard>
+      <wizard
+            category="XmodelingPlugIn.category.wizards"
+            class="xmodeling.wizards.XmodelingProjectNewWizardFromExistingEcore"
+            icon="icons/x-modeling-small.png"
+            id="XmodelingPlugIn.wizard.newfromexisting.Xmodeling"
+            name="Xmodeling Project from existing Ecore">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Apply a transformation on a chosen metamodel."
+            id="XmodelingPlugIn.command.XmodelingTransformation"
+            name="Xmodeling Transformation">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="xmodeling.handler.XmodelingTransformationHandler"
+            commandId="XmodelingPlugIn.command.XmodelingTransformation">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any">
+         <command
+               commandId="XmodelingPlugIn.command.XmodelingTransformation"
+               label="Xmodeling Transformation"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

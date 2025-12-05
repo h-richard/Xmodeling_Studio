@@ -1,0 +1,21 @@
+# Build
+bin/
+build/
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Xtext generated
+src-gen/
+xtend-gen/
+
+# OS
+.DS_Store
+Thumbs.db

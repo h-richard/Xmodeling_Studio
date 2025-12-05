@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: XmodelingPlugIn;singleton:=true
+Export-Package: xmodeling.projects
+Bundle-Name: XmodelingPlugIn
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.ui
+ .ide;bundle-version="3.13.1",org.eclipse.core.resources;bundle-versio
+ n="3.12.0"
+Bundle-ManifestVersion: 2
+Bundle-Activator: xmodeling.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.emf.common.util,org.eclipse.emf.ecore,org.
+ eclipse.emf.ecore.resource,org.eclipse.emf.ecore.xmi.impl
+
