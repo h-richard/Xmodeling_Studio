@@ -1,17 +1,12 @@
 package xmodeling;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.CoreException;
 
 import xmodeling.contents.*;
 
@@ -35,22 +30,22 @@ public class XmodelingFilesManager {
 			"build.properties", "plugin.properties", "plugin.xml", ".project", ".classpath", "MANIFEST.MF",
 			"aird", "ecore", "genmodel", "Switch.java", "AdapterFactory.java", "Factory.java",
 			"FactoryImpl.java", "Package.java", "PackageImpl.java", "XmodUtils.java",
-			"Xmod_Action.java", "Xmod_ActionImpl.java", "Xmod_Operation.java", "Xmod_OperationImpl.java",
-			"Xmod_Element.java", "Xmod_ElementImpl.java", "Xmod_Exception.java", "Xmod_ExceptionImpl.java",
-			"Xmod_ExceptionLiteral.java", "Xmod_ExceptionReaction.java"
+			"Xmod_Action.java", "Xmod_ActionImpl.java",
+			"Xmod_Operation.java", "Xmod_OperationImpl.java",
+			"Xmod_Element.java", "Xmod_ElementImpl.java",
+			"Xmod_Exception.java", "Xmod_ExceptionImpl.java",
+			"Xmod_ExceptionKind.java", "Xmod_ExceptionReaction.java",
+			"Xmod_ExceptionContext.java",
+			"Xmod_UnknownNamespaceException.java",
+			"Xmod_ObjectNotFoundException.java",
+			"Xmod_MethodNotFoundException.java",
+			"Xmod_ParameterNotMatchingException.java",
+			"Xmod_ReturnTypeNotMatchingException.java",
+			"XtextGrammar.xtext", "XtextValidator.xtext"
 	};
 
-	/**
-	 * @see SourceFilesPrinter(IProject, String, String)
-	 */
 	private final String projectName;
-	/**
-	 * @see SourceFilesPrinter(IProject, String, String)
-	 */
 	private final String projectClass;
-	/**
-	 * @see SourceFilesPrinter(IProject, String, String)
-	 */
 	private final IProject project;
 	
 	/**
@@ -90,13 +85,14 @@ public class XmodelingFilesManager {
      */
     public static File findProjectUpwards(String path, String projectName) {
         File current = new File(path);
-
+        
         while (current != null) {
             if (current.getName().equals(projectName)) {
             	// check if said directory is an eclipse project
                 File dotProject = new File(current, ".project");
                 if (dotProject.exists())
-                    return current;
+                	return current;
+                    
             }
             current = current.getParentFile(); // go up
         }
@@ -106,7 +102,7 @@ public class XmodelingFilesManager {
     
     /**
      * Retrieves a given folder in another, based on its name
-     * @param root
+     * @param current
      * 		the folder from where to start the search
      * @param folderName
      * 		the name of the searched folder
@@ -134,7 +130,7 @@ public class XmodelingFilesManager {
 	 * 
 	 * @param folder
 	 * 			The folder where the file will be created.
-	 * @param file
+	 * @param fileName
 	 * 			The name of the file, the corresponding content will be printed.
 	 * 
 	 * @see XmodelingFilesManager#switchForContentFile(String)
@@ -180,8 +176,16 @@ public class XmodelingFilesManager {
         );
     }
 	
-	protected void createXtextFile(Path folder, String fileName, Path mmPath) {
-		
+	protected void createXtextFile(Path folder, String fileName, Path mmPath) throws IOException {
+		Path file = folder.resolve(fileName);
+		String modelPath = mmPath.toString().replace('\\','/');
+		String content = new XtextContent().getContentFor(projectName, projectClass, modelPath);
+		Files.writeString(
+				file,
+				content,
+				StandardOpenOption.CREATE, // creates file if it doesnt exist
+				StandardOpenOption.TRUNCATE_EXISTING // overwrites it if it does
+		);
 	}
 	
 	/**
@@ -224,8 +228,18 @@ public class XmodelingFilesManager {
 			case "Xmod_ElementImpl.java" -> new Xmod_ElementImplContent();
 			case "Xmod_Exception.java" -> new Xmod_ExceptionContent();
 			case "Xmod_ExceptionImpl.java" -> new Xmod_ExceptionImplContent();
-			case "Xmod_ExceptionLiteral.java" -> new Xmod_ExceptionLiteralContent();
+			case "Xmod_ExceptionKind.java" -> new Xmod_ExceptionKindContent();
 			case "Xmod_ExceptionReaction.java" -> new Xmod_ExceptionReactionContent();
+
+			case "Xmod_ExceptionContext.java" -> new Xmod_ExceptionContextContent();
+			case "Xmod_UnknownNamespaceException.java" -> new Xmod_UnknownNamespaceExceptionContent();
+			case "Xmod_ObjectNotFoundException.java" -> new Xmod_ObjectNotFoundExceptionContent();
+			case "Xmod_MethodNotFoundException.java" -> new Xmod_MethodNotFoundExceptionContent();
+			case "Xmod_ParametersNotMatchingException.java" -> new Xmod_ParametersNotMatchingExceptionContent();
+			case "Xmod_ReturnTypeNotMatchingException.java" -> new Xmod_ReturnTypeNotMatchingExceptionContent();
+
+			case "XtextGrammar.xtext" -> new XtextContent();
+			case "XtextValidator.xtext" -> new XtextValidatorContent();
 
 			default -> null;
 		};

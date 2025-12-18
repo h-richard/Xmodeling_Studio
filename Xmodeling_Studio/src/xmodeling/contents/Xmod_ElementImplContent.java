@@ -32,7 +32,7 @@ public class Xmod_ElementImplContent implements FileContent {
              *   <li>'{'@link {0}.impl.Xmod_ElementImpl#getXmod_id <em>Xmod id</em>'}'</li>
              * </ul>
              *
-             * @generated
+             * @generated NOT
              */
             public abstract class Xmod_ElementImpl extends MinimalEObjectImpl.Container implements Xmod_Element '{'
                 /**
@@ -40,7 +40,7 @@ public class Xmod_ElementImplContent implements FileContent {
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @see #getXmod_id()
-                 * @generated
+                 * @generated NOT
                  * @ordered
                  */
                 protected static final String XMOD_ID_EDEFAULT = null;
@@ -50,7 +50,7 @@ public class Xmod_ElementImplContent implements FileContent {
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @see #getXmod_id()
-                 * @generated
+                 * @generated NOT
                  * @ordered
                  */
                 protected String xmod_id = XMOD_ID_EDEFAULT;
@@ -58,7 +58,7 @@ public class Xmod_ElementImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 protected Xmod_ElementImpl() '{'
                     super();
@@ -67,7 +67,7 @@ public class Xmod_ElementImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 protected EClass eStaticClass() '{'
@@ -77,7 +77,7 @@ public class Xmod_ElementImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public String getXmod_id() '{'
@@ -87,7 +87,7 @@ public class Xmod_ElementImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public void setXmod_id(String newXmod_id) '{'
@@ -100,7 +100,7 @@ public class Xmod_ElementImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public Object eGet(int featureID, boolean resolve, boolean coreType) '{'
@@ -114,7 +114,7 @@ public class Xmod_ElementImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public void eSet(int featureID, Object newValue) '{'
@@ -129,7 +129,7 @@ public class Xmod_ElementImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public void eUnset(int featureID) '{'
@@ -158,7 +158,7 @@ public class Xmod_ElementImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public String toString() '{'

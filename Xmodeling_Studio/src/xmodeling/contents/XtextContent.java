@@ -9,51 +9,51 @@ public class XtextContent implements FileContent {
 		return null;
 	}
 	
-	public String getContentFor(String modelPath) {
+	public String getContentFor(String projectName, String projectClass, String modelPath) {
 		return MessageFormat.format(
 			"""
-			grammar org.xtext.Spice with org.eclipse.xtext.common.Terminals
+			grammar org.xtext.{0} with org.eclipse.xtext.common.Terminals
 			
-			import "platform:/resource/{0}"
+			import "platform:/resource/{1}"
 			import "http://www.eclipse.org/emf/2002/Ecore" as ecore
-				
-			XMod_Action returns XMod_Action:
-				'Action' xmod_id=EString '{' operations+=XMod_OperationCall (operations+=XMod_OperationCall)* '}';
 			
-			XMod_OperationDef returns XMod_Operation:
-				name=EString'('( parametersTag+=EString ( "," parametersTag+=EString )* )?')'
-					'on' objectTag=EString ('returns' returnTag=EString)?
-					(exceptions+=XMod_Exception (exceptions+=XMod_Exception)* )?;
-					
-			XMod_OperationCall returns XMod_Operation:
-				'call' XMod_OperationDef ';';
-					
-			XMod_Exception returns XMod_Exception:
-				'onError' (literal=XMod_ExceptionLiteral_Unfiltered | literal=XMod_ExceptionLiteral_Filtered '('filter=EString')') 
-				('call' calledOperation=XMod_OperationDef 'then')? reaction=XMod_ExceptionReaction;
-				
-			enum XMod_ExceptionReaction:
+			Xmod_Action returns Xmod_Action:
+				''Action'' name=EString '''{''' operations+=Xmod_OperationCall (operations+=Xmod_OperationCall)* '''}''';
+			
+			Xmod_OperationDef returns Xmod_Operation:
+				name=EString''(''( parametersTag+=EString ( "," parametersTag+=EString )* )?'')''
+					''on'' objectTag=EString (''returns'' returnTag=EString)?
+					(exceptions+=Xmod_Exception (exceptions+=Xmod_Exception)* )?;
+			
+			Xmod_OperationCall returns Xmod_Operation:
+				''call'' Xmod_OperationDef '';'';
+			
+			Xmod_Exception returns Xmod_Exception:
+				''onError'' (kind=Xmod_ExceptionKind_Unfiltered | kind=Xmod_ExceptionKind_Filtered ''(''filter=EString'')'')
+				(''call'' calledOperation=Xmod_OperationDef)? ''then'' reaction=Xmod_ExceptionReaction;
+			
+			enum Xmod_ExceptionReaction:
 				continue | skip | exit;
 			
-			enum XMod_ExceptionLiteral:
-				other = 'other' | 
-				unknownTag = 'unknownTag' | 
-				objectNotFound = 'objectNotFound' | 
-				methodNotFound = 'methodNotFound' | 
-				parametersNotMatching = 'parametersNotMatching' | 
-				returnTypeNotMatching = 'returnTypeNotMatching' | 
-				methodException = 'methodException';
-				
-			XMod_ExceptionLiteral_Filtered returns XMod_ExceptionLiteral:
-				'methodException';
+			enum Xmod_ExceptionKind:
+				other = ''other'' |
+				unknownNamespace = ''unknownNamespace'' |
+				objectNotFound = ''objectNotFound'' |
+				methodNotFound = ''methodNotFound'' |
+				parametersNotMatching = ''parametersNotMatching'' |
+				returnTypeNotMatching = ''returnTypeNotMatching'' |
+				methodException = ''methodException'';
 			
-			XMod_ExceptionLiteral_Unfiltered returns XMod_ExceptionLiteral:
-				'other' | 'unknownTag' | 'objectNotFound' | 'methodNotFound' | 'parametersNotMatching' | 'returnTypeNotMatching';
+			Xmod_ExceptionKind_Filtered returns Xmod_ExceptionKind:
+				''methodException'';
+			
+			Xmod_ExceptionKind_Unfiltered returns Xmod_ExceptionKind:
+				''other'' | ''unknownNamespace'' | ''objectNotFound'' | ''methodNotFound'' | ''parametersNotMatching'' | ''returnTypeNotMatching'';
 			
 			EString returns ecore::EString:
 				STRING | ID;
 			""",
-		modelPath);
+		projectName, modelPath);
 	}
 
 }

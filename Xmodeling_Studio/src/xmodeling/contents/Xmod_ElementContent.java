@@ -27,7 +27,7 @@ public class Xmod_ElementContent implements FileContent {
              *
              * @see {0}.{1}Package#getXmod_Element()
              * @model abstract="true"
-             * @generated
+             * @generated NOT
              */
             public interface Xmod_Element extends EObject '{'
                 /**
@@ -38,7 +38,7 @@ public class Xmod_ElementContent implements FileContent {
                  * @see #setXmod_id(String)
                  * @see {0}.{1}Package#getXmod_Element_Xmod_id()
                  * @model
-                 * @generated
+                 * @generated NOT
                  */
                 String getXmod_id();
             
@@ -48,7 +48,7 @@ public class Xmod_ElementContent implements FileContent {
                  * <!-- end-user-doc -->
                  * @param value the new value of the ''<em>Xmod id</em>'' attribute.
                  * @see #getXmod_id()
-                 * @generated
+                 * @generated NOT
                  */
                 void setXmod_id(String value);
             

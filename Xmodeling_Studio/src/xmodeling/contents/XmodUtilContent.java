@@ -7,7 +7,7 @@ public class XmodUtilContent implements FileContent {
 	private static final String firstPart = 
 			"""
 			package {0}.util;
-            
+
 			import java.beans.XMLDecoder;
 			import java.beans.XMLEncoder;
 			import java.io.*;
@@ -29,11 +29,12 @@ public class XmodUtilContent implements FileContent {
 			
 			import com.google.inject.Injector;
 			
+			import {0}.{2};
 			import {0}.{1}Factory;
 			import {0}.{1}Package;
 			import {0}.Xmod_Element;
 			import {0}.Xmod_Exception;
-			import {0}.Xmod_ExceptionLiteral;
+			import {0}.Xmod_ExceptionKind;
 			import {0}.Xmod_ExceptionReaction;
 			import {0}.Xmod_Operation;
 			
@@ -59,6 +60,14 @@ public class XmodUtilContent implements FileContent {
 			    public static void setModelMap(Map<String,Object> map) '{'
 			        MODELMAP = map;
 			    '}'
+			    
+			    public static void putExtMap(String key, Object value) '{'
+			    	EXTMAP.put(key, value);
+			    '}'
+			    
+			    public static void putModelMap(String key, Object value) '{'
+					MODELMAP.put(key, value);
+				'}'
 			
 			    @SuppressWarnings("unchecked")
 			    public static Map<String, Object> loadMap(String fileName) '{'
@@ -205,22 +214,29 @@ public class XmodUtilContent implements FileContent {
                             '}'
                         '}'
         
-                        {2} root = ({2}) resource.getContents().get(0);
-                        if (root == null) System.err.println("No root instance in the model");
-                        else init(root);
+                        {2} root = null;
+						for (EObject e : resource.getContents()) '{'
+							if (e instanceof {2}) '{'
+								root = ({2}) e;
+								break;
+							}
+						}
+						if (root == null) System.err.println("No root instance in the model");
+						else init(root);
         
                         return root;
         
                     '}' catch (Exception e) '{'
                         e.printStackTrace();
-                        throw new RuntimeException("Failed to load .spice model: " + uri, e);
+                        throw new RuntimeException("Failed to load model: " + uri, e);
                     '}'
                 '}'
         
-                private static void init({2} s) '{'
-                    TreeIterator<EObject> it = s.eAllContents();
+                private static void init({2} r) '{'
+                    TreeIterator<EObject> it = r.eAllContents();
         
-                    MODELMAP.put(s.getXmod_id(), s);
+                    if (r instanceof Xmod_Element)
+						MODELMAP.put(r.getXmod_id(), r);
         
                     while (it.hasNext()) '{'
                         EObject obj = it.next();
@@ -230,14 +246,14 @@ public class XmodUtilContent implements FileContent {
         
                         if (obj instanceof Xmod_Operation o) '{'
                             Xmod_Exception ok = {1}Factory.eINSTANCE.createXmod_Exception();
-                            ok.setLiteral(Xmod_ExceptionLiteral.OK);
+                            ok.setKind(Xmod_ExceptionKind.OK);
                             ok.setReaction(Xmod_ExceptionReaction.CONTINUE);
                             o.setEOK(ok);
                             o.addException(ok);
         
-                            if (o.getException(Xmod_ExceptionLiteral.OTHER) == null) '{'
+                            if (o.getException(Xmod_ExceptionKind.OTHER) == null) '{'
                                 Xmod_Exception other = {1}Factory.eINSTANCE.createXmod_Exception();
-                                other.setLiteral(Xmod_ExceptionLiteral.OTHER);
+                                other.setKind(Xmod_ExceptionKind.OTHER);
                                 other.setReaction(Xmod_ExceptionReaction.CONTINUE);
                                 o.addException(other);
                             '}'
@@ -245,7 +261,7 @@ public class XmodUtilContent implements FileContent {
                     '}'
                 '}'
             '}'
-    		""",
+			""",
     		projectName, projectClass, rootClassName);
     }
 }

@@ -22,7 +22,7 @@ public class Xmod_ExceptionContent implements FileContent {
              * The following features are supported:
              * </p>
              * <ul>
-             *   <li>'{'@link {0}.Xmod_Exception#getLiteral <em>Literal</em>'}'</li>
+             *   <li>'{'@link {0}.Xmod_Exception#getKind <em>Kind</em>'}'</li>
              *   <li>'{'@link {0}.Xmod_Exception#getFilter <em>Filter</em>'}'</li>
              *   <li>'{'@link {0}.Xmod_Exception#getReaction <em>Reaction</em>'}'</li>
              *   <li>'{'@link {0}.Xmod_Exception#getCalledOperation <em>Called Operation</em>'}'</li>
@@ -30,34 +30,34 @@ public class Xmod_ExceptionContent implements FileContent {
              *
              * @see {0}.{1}Package#getXmod_Exception()
              * @model
-             * @generated
+             * @generated NOT
              */
             public interface Xmod_Exception extends EObject '{'
                 /**
-                 * Returns the value of the ''<em><b>Literal</b></em>'' attribute.
+                 * Returns the value of the ''<em><b>Kind</b></em>'' attribute.
                  * The default value is <code>"ok"</code>.
-                 * The literals are from the enumeration '{'@link {0}.Xmod_ExceptionLiteral'}'.
+                 * The kinds are from the enumeration '{'@link {0}.Xmod_ExceptionKind'}'.
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @return the value of the ''<em>Literal</em>'' attribute.
-                 * @see {0}.Xmod_ExceptionLiteral
-                 * @see #setLiteral(Xmod_ExceptionLiteral)
-                 * @see {0}.{1}Package#getXmod_Exception_Literal()
+                 * @return the value of the ''<em>Kind</em>'' attribute.
+                 * @see {0}.Xmod_ExceptionKind
+                 * @see #setKind(Xmod_ExceptionKind)
+                 * @see {0}.{1}Package#getXmod_Exception_Kind()
                  * @model default="ok" required="true"
-                 * @generated
+                 * @generated NOT
                  */
-                Xmod_ExceptionLiteral getLiteral();
+                Xmod_ExceptionKind getKind();
             
                 /**
-                 * Sets the value of the '''{'@link {0}.Xmod_Exception#getLiteral <em>Literal</em>'}''' attribute.
+                 * Sets the value of the '''{'@link {0}.Xmod_Exception#getKind <em>Kind</em>'}''' attribute.
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @param value the new value of the ''<em>Literal</em>'' attribute.
-                 * @see {0}.Xmod_ExceptionLiteral
-                 * @see #getLiteral()
-                 * @generated
+                 * @param value the new value of the ''<em>Kind</em>'' attribute.
+                 * @see {0}.Xmod_ExceptionKind
+                 * @see #getKind()
+                 * @generated NOT
                  */
-                void setLiteral(Xmod_ExceptionLiteral value);
+                void setKind(Xmod_ExceptionKind value);
             
                 /**
                  * Returns the value of the ''<em><b>Filter</b></em>'' attribute.
@@ -67,7 +67,7 @@ public class Xmod_ExceptionContent implements FileContent {
                  * @see #setFilter(String)
                  * @see {0}.{1}Package#getXmod_Exception_Filter()
                  * @model
-                 * @generated
+                 * @generated NOT
                  */
                 String getFilter();
             
@@ -77,14 +77,14 @@ public class Xmod_ExceptionContent implements FileContent {
                  * <!-- end-user-doc -->
                  * @param value the new value of the ''<em>Filter</em>'' attribute.
                  * @see #getFilter()
-                 * @generated
+                 * @generated NOT
                  */
                 void setFilter(String value);
             
                 /**
                  * Returns the value of the ''<em><b>Reaction</b></em>'' attribute.
                  * The default value is <code>"custom"</code>.
-                 * The literals are from the enumeration '{'@link {0}.Xmod_ExceptionReaction'}'.
+                 * The kinds are from the enumeration '{'@link {0}.Xmod_ExceptionReaction'}'.
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @return the value of the ''<em>Reaction</em>'' attribute.
@@ -92,7 +92,7 @@ public class Xmod_ExceptionContent implements FileContent {
                  * @see #setReaction(Xmod_ExceptionReaction)
                  * @see {0}.{1}Package#getXmod_Exception_Reaction()
                  * @model default="custom" required="true"
-                 * @generated
+                 * @generated NOT
                  */
                 Xmod_ExceptionReaction getReaction();
             
@@ -103,7 +103,7 @@ public class Xmod_ExceptionContent implements FileContent {
                  * @param value the new value of the ''<em>Reaction</em>'' attribute.
                  * @see {0}.Xmod_ExceptionReaction
                  * @see #getReaction()
-                 * @generated
+                 * @generated NOT
                  */
                 void setReaction(Xmod_ExceptionReaction value);
             
@@ -115,7 +115,7 @@ public class Xmod_ExceptionContent implements FileContent {
                  * @see #setCalledOperation(Xmod_Operation)
                  * @see {0}.{1}Package#getXmod_Exception_CalledOperation()
                  * @model containment="true"
-                 * @generated
+                 * @generated NOT
                  */
                 Xmod_Operation getCalledOperation();
             
@@ -125,7 +125,7 @@ public class Xmod_ExceptionContent implements FileContent {
                  * <!-- end-user-doc -->
                  * @param value the new value of the ''<em>Called Operation</em>'' containment reference.
                  * @see #getCalledOperation()
-                 * @generated
+                 * @generated NOT
                  */
                 void setCalledOperation(Xmod_Operation value);
             

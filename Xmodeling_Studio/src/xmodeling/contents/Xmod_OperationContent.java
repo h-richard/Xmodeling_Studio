@@ -33,7 +33,7 @@ public class Xmod_OperationContent implements FileContent {
              *
              * @see {0}.{1}Package#getXmod_Operation()
              * @model
-             * @generated
+             * @generated NOT
              */
             public interface Xmod_Operation extends EObject '{'
             
@@ -47,7 +47,7 @@ public class Xmod_OperationContent implements FileContent {
                  * @see #setName(String)
                  * @see {0}.{1}Package#getXmod_Operation_Name()
                  * @model required="true"
-                 * @generated
+                 * @generated NOT
                  */
                 String getName();
             
@@ -57,7 +57,7 @@ public class Xmod_OperationContent implements FileContent {
                  * <!-- end-user-doc -->
                  * @param value the new value of the ''<em>Name</em>'' attribute.
                  * @see #getName()
-                 * @generated
+                 * @generated NOT
                  */
                 void setName(String value);
             
@@ -69,7 +69,7 @@ public class Xmod_OperationContent implements FileContent {
                  * @see #setObjectTag(String)
                  * @see {0}.{1}Package#getXmod_Operation_ObjectTag()
                  * @model required="true"
-                 * @generated
+                 * @generated NOT
                  */
                 String getObjectTag();
             
@@ -79,7 +79,7 @@ public class Xmod_OperationContent implements FileContent {
                  * <!-- end-user-doc -->
                  * @param value the new value of the ''<em>Object Tag</em>'' attribute.
                  * @see #getObjectTag()
-                 * @generated
+                 * @generated NOT
                  */
                 void setObjectTag(String value);
             
@@ -91,7 +91,7 @@ public class Xmod_OperationContent implements FileContent {
                  * @return the value of the ''<em>Parameters Tag</em>'' attribute list.
                  * @see {0}.{1}Package#getXmod_Operation_ParametersTag()
                  * @model
-                 * @generated
+                 * @generated NOT
                  */
                 EList<String> getParametersTag();
             
@@ -103,7 +103,7 @@ public class Xmod_OperationContent implements FileContent {
                  * @see #setReturnTag(String)
                  * @see {0}.{1}Package#getXmod_Operation_ReturnTag()
                  * @model
-                 * @generated
+                 * @generated NOT
                  */
                 String getReturnTag();
             
@@ -113,7 +113,7 @@ public class Xmod_OperationContent implements FileContent {
                  * <!-- end-user-doc -->
                  * @param value the new value of the ''<em>Return Tag</em>'' attribute.
                  * @see #getReturnTag()
-                 * @generated
+                 * @generated NOT
                  */
                 void setReturnTag(String value);
             
@@ -125,19 +125,19 @@ public class Xmod_OperationContent implements FileContent {
                  * @return the value of the ''<em>Exceptions</em>'' containment reference list.
                  * @see {0}.{1}Package#getXmod_Operation_Exceptions()
                  * @model containment="true"
-                 * @generated
+                 * @generated NOT
                  */
                 EList<Xmod_Exception> getExceptions();
             
-                Xmod_Exception getException(Xmod_ExceptionLiteral literal);
+                Xmod_Exception getException(Xmod_ExceptionKind kind);
             
-                Xmod_Exception getException(Xmod_ExceptionLiteral literal, String filter);
+                Xmod_Exception getException(Xmod_ExceptionKind kind, String filter);
             
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @model required="true"
-                 * @generated
+                 * @generated NOT
                  */
                 Xmod_Exception callOperation();
             

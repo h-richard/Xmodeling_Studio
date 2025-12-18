@@ -14,24 +14,24 @@ public class Xmod_OperationImplContent implements FileContent {
             import {0}.{1}Package;
             import {0}.Xmod_Element;
             import {0}.Xmod_Exception;
-            import {0}.Xmod_ExceptionLiteral;
+            import {0}.Xmod_ExceptionKind;
             import {0}.Xmod_Operation;
-            import {0}.util.TypeResolver;
-            import exceptions.ParametersNotMatchingException;
-            import exceptions.ReturnTypeNotMatchingException;
-            import exceptions.ExceptionContext;
-            import exceptions.MethodNotFoundException;
-            import exceptions.ObjectNotFoundException;
-            import exceptions.UnknownTagException;
             
-            import static {0}.Xmod_ExceptionLiteral.*;
+            import exceptions.Xmod_ExceptionContext;
+            import exceptions.Xmod_UnknownNamespaceException;
+            import exceptions.Xmod_ObjectNotFoundException;
+            import exceptions.Xmod_MethodNotFoundException;
+            import exceptions.Xmod_ParametersNotMatchingException;
+            import exceptions.Xmod_ReturnTypeNotMatchingException;
+            
+            import static {0}.Xmod_ExceptionKind.*;
             
             import java.lang.reflect.Array;
             import java.lang.reflect.Constructor;
             import java.lang.reflect.InvocationTargetException;
             
             import java.lang.reflect.Method;
-            import java.lang.reflect.modifier;
+            import java.lang.reflect.Modifier;
             import java.util.Arrays;
             import java.util.Collection;
             import java.util.Collections;
@@ -68,7 +68,7 @@ public class Xmod_OperationImplContent implements FileContent {
              *   <li>'{'@link {0}.impl.Xmod_OperationImpl#getExceptions <em>Exceptions</em>'}'</li>
              * </ul>
              *
-             * @generated
+             * @generated NOT
              */
             public class Xmod_OperationImpl extends MinimalEObjectImpl.Container implements Xmod_Operation '{'
             
@@ -84,7 +84,7 @@ public class Xmod_OperationImplContent implements FileContent {
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @see #getName()
-                 * @generated
+                 * @generated NOT
                  * @ordered
                  */
                 protected static final String NAME_EDEFAULT = null;
@@ -94,7 +94,7 @@ public class Xmod_OperationImplContent implements FileContent {
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @see #getName()
-                 * @generated
+                 * @generated NOT
                  * @ordered
                  */
                 protected String name = NAME_EDEFAULT;
@@ -104,7 +104,7 @@ public class Xmod_OperationImplContent implements FileContent {
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @see #getObjectTag()
-                 * @generated
+                 * @generated NOT
                  * @ordered
                  */
                 protected static final String OBJECT_TAG_EDEFAULT = null;
@@ -114,7 +114,7 @@ public class Xmod_OperationImplContent implements FileContent {
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @see #getObjectTag()
-                 * @generated
+                 * @generated NOT
                  * @ordered
                  */
                 protected String objectTag = OBJECT_TAG_EDEFAULT;
@@ -124,7 +124,7 @@ public class Xmod_OperationImplContent implements FileContent {
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @see #getParametersTag()
-                 * @generated
+                 * @generated NOT
                  * @ordered
                  */
                 protected EList<String> parametersTag;
@@ -134,7 +134,7 @@ public class Xmod_OperationImplContent implements FileContent {
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @see #getReturnTag()
-                 * @generated
+                 * @generated NOT
                  * @ordered
                  */
                 protected static final String RETURN_TAG_EDEFAULT = null;
@@ -144,7 +144,7 @@ public class Xmod_OperationImplContent implements FileContent {
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @see #getReturnTag()
-                 * @generated
+                 * @generated NOT
                  * @ordered
                  */
                 protected String returnTag = RETURN_TAG_EDEFAULT;
@@ -154,7 +154,7 @@ public class Xmod_OperationImplContent implements FileContent {
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @see #getExceptions()
-                 * @generated
+                 * @generated NOT
                  * @ordered
                  */
                 protected EList<Xmod_Exception> exceptions;
@@ -162,7 +162,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 protected Xmod_OperationImpl() '{'
                     super();
@@ -171,7 +171,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 protected EClass eStaticClass() '{'
@@ -185,7 +185,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public String getName() '{'
@@ -195,7 +195,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public void setName(String newName) '{'
@@ -208,7 +208,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public String getObjectTag() '{'
@@ -218,7 +218,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public void setObjectTag(String newObjectTag) '{'
@@ -231,7 +231,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public EList<String> getParametersTag() '{'
@@ -244,7 +244,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public String getReturnTag() '{'
@@ -254,7 +254,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public void setReturnTag(String newReturnTag) '{'
@@ -267,7 +267,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public EList<Xmod_Exception> getExceptions() '{'
@@ -278,17 +278,17 @@ public class Xmod_OperationImplContent implements FileContent {
                 '}'
             
                 @Override
-                public Xmod_Exception getException(Xmod_ExceptionLiteral literal) '{'
+                public Xmod_Exception getException(Xmod_ExceptionKind kind) '{'
                     for (Xmod_Exception e : getExceptions())
-                        if (e.getLiteral() == literal)
+                        if (e.getKind() == kind)
                             return e;
                     return null;
                 '}'
             
                 @Override
-                public Xmod_Exception getException(Xmod_ExceptionLiteral literal, String filter) '{'
+                public Xmod_Exception getException(Xmod_ExceptionKind kind, String filter) '{'
                     for (Xmod_Exception e : getExceptions())
-                        if (e.getLiteral() == literal && e.getFilter().equals(filter))
+                        if (e.getKind() == kind && e.getFilter().equals(filter))
                             return e;
                     return null;
                 '}'
@@ -361,7 +361,7 @@ public class Xmod_OperationImplContent implements FileContent {
                             Object owner = getTarget(getObjectTag(), 0, 0);
                             m = getMethod(owner, getName(), parametersType);
                             // if the method is static
-                            if (modifier.isStatic(m.getmodifiers())) '{'
+                            if (Modifier.isStatic(m.getModifiers())) '{'
                                 returnValue = m.invoke(null, parameters);
                             // if not
                             '}' else '{'
@@ -371,7 +371,7 @@ public class Xmod_OperationImplContent implements FileContent {
                             // update of the hashmap
                             if (getReturnTag() != null) '{'
                                 String[] couple = getReturnTag().split(TAG_SEPARATOR);
-                                String[] chain = couple[1].split("\\.");
+                                String[] chain = couple[1].split("\\\\.");
             
                                 // is a model object
                                 if (couple[0].equals(MODEL_TAG)) '{'
@@ -381,17 +381,17 @@ public class Xmod_OperationImplContent implements FileContent {
             
                                     // check if the object can be assigned with the returning type
                                     if (!targetProperty.getClass().isAssignableFrom(returnValue.getClass()))
-                                        throw new ReturnTypeNotMatchingException(
+                                        throw new Xmod_ReturnTypeNotMatchingException(
                                                 returnValue.getClass().getSimpleName()+" isn''t assignable to ("+targetProperty.getClass()+")");
             
                                     Method setter = getMethod(target, "set" + capitalize(targetPropertyName), targetProperty.getClass());
                                     setter.invoke(target, returnValue);
-            
+                                '}'
                                 // is external to the model
                                 else if (couple[0].equals(EXTERNAL_TAG)) '{'
                                     {0}.util.{1}Utils.getExtMap().put(getReturnTag().split(":")[1], returnValue);
                                 '}' else '{'
-                                    throw new UnknownTagException(couple[0]);
+                                    throw new Xmod_UnknownNamespaceException(couple[0]);
                                 '}'
                             '}'
                         '}'
@@ -399,23 +399,23 @@ public class Xmod_OperationImplContent implements FileContent {
                         catch (Exception e) '{'
                             Exception savedException = e instanceof InvocationTargetException ? (Exception) e.getCause() : e;
             
-                            {0}.util.{1}Utils.getExtMap().put(ExceptionContext.CONTEXT_KEY,
-                                    new ExceptionContext(savedException, getName(), (String[]) getParametersTag().toArray()));
+                            {0}.util.{1}Utils.getExtMap().put(Xmod_ExceptionContext.CONTEXT_KEY,
+                                    new Xmod_ExceptionContext(savedException, getName(), (String[]) getParametersTag().toArray()));
             
-                            Xmod_ExceptionLiteral lit;
-                            if (e instanceof UnknownTagException) lit = UNKNOWN_TAG;
-                            else if (e instanceof ObjectNotFoundException) lit = OBJECT_NOT_FOUND;
-                            else if (e instanceof MethodNotFoundException) lit = METHOD_NOT_FOUND;
-                            else if (e instanceof ParametersNotMatchingException) lit = PARAMETERS_NOT_MATCHING;
-                            else if (e instanceof ReturnTypeNotMatchingException) lit = RETURN_TYPE_NOT_MATCHING;
-                            else if (e instanceof InvocationTargetException) lit = METHOD_EXCEPTION;
+                            Xmod_ExceptionKind kind;
+                            if (e instanceof Xmod_UnknownNamespaceException) kind = UNKNOWN_NAMESPACE;
+                            else if (e instanceof Xmod_ObjectNotFoundException) kind = OBJECT_NOT_FOUND;
+                            else if (e instanceof Xmod_MethodNotFoundException) kind = METHOD_NOT_FOUND;
+                            else if (e instanceof Xmod_ParametersNotMatchingException) kind = PARAMETERS_NOT_MATCHING;
+                            else if (e instanceof Xmod_ReturnTypeNotMatchingException) kind = RETURN_TYPE_NOT_MATCHING;
+                            else if (e instanceof InvocationTargetException) kind = METHOD_EXCEPTION;
                             else '{'
                                 e.printStackTrace();
                                 return null;
                             '}'
             
-                            Xmod_Exception xme = lit == METHOD_EXCEPTION ? getException(lit, savedException.getClass().getSimpleName()) : getException(lit);
-                            return xme == null ? getException(Xmod_ExceptionLiteral.OTHER) : xme;
+                            Xmod_Exception xme = kind == METHOD_EXCEPTION ? getException(kind, savedException.getClass().getSimpleName()) : getException(kind);
+                            return xme == null ? getException(Xmod_ExceptionKind.OTHER) : xme;
                         '}'
                     '}'
             
@@ -425,7 +425,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) '{'
@@ -443,14 +443,14 @@ public class Xmod_OperationImplContent implements FileContent {
                  */
                 private static String capitalize(String s) '{'
                     return s.substring(0, 1).toUpperCase() + s.substring(1);
-                }
+                '}'
             
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @generated NOT
                  */
-                private static Method getMethod(Object target, String methodName, Class<?>... paramsType) throws MethodNotFoundException, ParametersNotMatchingException '{'
+                private static Method getMethod(Object target, String methodName, Class<?>... paramsType) throws Xmod_MethodNotFoundException, Xmod_ParametersNotMatchingException '{'
                     Class<?> owningClass = target.getClass();
             
                     List<Method> candidates = Arrays.stream(owningClass.getMethods())
@@ -458,7 +458,7 @@ public class Xmod_OperationImplContent implements FileContent {
                             .collect(Collectors.toList());
             
                     if (candidates.isEmpty())
-                        throw new MethodNotFoundException("''"+methodName+"'' in ''"+target.getClass().getSimpleName()+"''");
+                        throw new Xmod_MethodNotFoundException("''"+methodName+"'' in ''"+target.getClass().getSimpleName()+"''");
             
                     for (Method m : candidates) '{'
                         Class<?>[] pt = m.getParameterTypes();
@@ -472,7 +472,7 @@ public class Xmod_OperationImplContent implements FileContent {
                         if (compatible) return m;
                     '}'
             
-                    throw new ParametersNotMatchingException(methodName+"("+
+                    throw new Xmod_ParametersNotMatchingException(methodName+"("+
                             Arrays	.stream(paramsType)
                                     .map(Class::getSimpleName)
                                     .collect(Collectors.joining(", "))+")");
@@ -484,11 +484,12 @@ public class Xmod_OperationImplContent implements FileContent {
                  * <!-- end-user-doc -->
                  * @generated NOT
                  */
-                private static Object getTarget(String params, int startOffset, int endOffset) throws UnknownTagException, ObjectNotFoundException, MethodNotFoundException, ParametersNotMatchingException, InvocationTargetException, IllegalAccessException, ClassNotFoundException, IllegalArgumentException, NoSuchMethodException, SecurityException, InstantiationException '{'
+                private static Object getTarget(String params, int startOffset, int endOffset) throws Xmod_UnknownNamespaceException, Xmod_ObjectNotFoundException, Xmod_MethodNotFoundException, Xmod_ParametersNotMatchingException, InvocationTargetException, IllegalAccessException, ClassNotFoundException, IllegalArgumentException, NoSuchMethodException, SecurityException, InstantiationException, UnsupportedOperationException '{'
                     String[] couple = params.split(TAG_SEPARATOR,2);
             
                     // is an orphan object to create
                     if (couple[0].equals(JAVA_TAG)) '{'
+                        /*
                         int open = couple[1].indexOf(''('');
                         int close = couple[1].indexOf('')'');
                         String classStr = couple[1].substring(0,open);
@@ -507,12 +508,14 @@ public class Xmod_OperationImplContent implements FileContent {
                         Class<?> classType = TypeResolver.resolve(classStr);
                         Constructor<?> constructor = classType.getConstructor(parametersType);
                         return constructor.newInstance(parameters);
+                        */
+                        throw new UnsupportedOperationException("java name spaces are not supported yet");
                     '}'
             
                     // is a model object
                     if (couple[0].equals(MODEL_TAG)) '{'
                         String[] split = couple[1].split("\\\\.");
-                        Map<String,Object> map = {0}.util.{1}Utils.getmodelMap();
+                        Map<String,Object> map = {0}.util.{1}Utils.getModelMap();
                         String chain = String.join(".", Arrays.copyOfRange(split, startOffset + 1, split.length + endOffset));
             
                         if (split[0].equals("this"))
@@ -520,7 +523,7 @@ public class Xmod_OperationImplContent implements FileContent {
             
                         Object mappedTarget = map.get(split[0]);
                         if (mappedTarget == null)
-                            throw new ObjectNotFoundException(split[0]);
+                            throw new Xmod_ObjectNotFoundException(split[0]);
                         return getDeepTarget(mappedTarget, chain);
                     '}'
             
@@ -532,12 +535,12 @@ public class Xmod_OperationImplContent implements FileContent {
             
                         Object mappedTarget = map.get(split[0]);
                         if (mappedTarget == null)
-                            throw new ObjectNotFoundException(split[0]);
+                            throw new Xmod_ObjectNotFoundException(split[0]);
                         return getDeepTarget(mappedTarget, chain);
                     '}'
             
                     // is unrecognized
-                    throw new UnknownTagException(couple[0]);
+                    throw new Xmod_UnknownNamespaceException(couple[0]);
                 '}'
             
                 /**
@@ -546,7 +549,7 @@ public class Xmod_OperationImplContent implements FileContent {
                  * @generated NOT
                  */
                 @SuppressWarnings("unchecked")
-                private static Object getDeepTarget(Object target, String params) throws ObjectNotFoundException, MethodNotFoundException, ParametersNotMatchingException, InvocationTargetException, IllegalAccessException, NoSuchMethodException '{'
+                private static Object getDeepTarget(Object target, String params) throws Xmod_ObjectNotFoundException, Xmod_MethodNotFoundException, Xmod_ParametersNotMatchingException, InvocationTargetException, IllegalAccessException, NoSuchMethodException '{'
                     if (params == null || params.isEmpty()) return target;
             
                     String[] parts = params.split("\\\\.", 2);
@@ -574,7 +577,7 @@ public class Xmod_OperationImplContent implements FileContent {
                     '}'
             
                     if (target == null)
-                        throw new ObjectNotFoundException(current);
+                        throw new Xmod_ObjectNotFoundException(current);
                     if (remain.isBlank()) return target;
                     return getDeepTarget(target, remain);
                 '}'
@@ -582,7 +585,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public Object eGet(int featureID, boolean resolve, boolean coreType) '{'
@@ -604,7 +607,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @SuppressWarnings("unchecked")
                 @Override
@@ -634,7 +637,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public void eUnset(int featureID) '{'
@@ -661,7 +664,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public boolean eIsSet(int featureID) '{'
@@ -683,7 +686,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException '{'
@@ -697,7 +700,7 @@ public class Xmod_OperationImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public String toString() '{'

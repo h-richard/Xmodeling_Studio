@@ -22,7 +22,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 			
 			import {0}.{1}Package;
 			import {0}.Xmod_Exception;
-			import {0}.Xmod_ExceptionLiteral;
+			import {0}.Xmod_ExceptionKind;
 			import {0}.Xmod_ExceptionReaction;
 			import {0}.Xmod_Operation;
 			
@@ -34,41 +34,41 @@ public class Xmod_ExceptionImplContent implements FileContent {
 			 * The following features are implemented:
 			 * </p>
 			 * <ul>
-			 *   <li>'{'@link {0}.impl.Xmod_ExceptionImpl#getLiteral <em>Literal</em>'}'</li>
+			 *   <li>'{'@link {0}.impl.Xmod_ExceptionImpl#getKind <em>Kind</em>'}'</li>
 			 *   <li>'{'@link {0}.impl.Xmod_ExceptionImpl#getFilter <em>Filter</em>'}'</li>
 			 *   <li>'{'@link {0}.impl.Xmod_ExceptionImpl#getReaction <em>Reaction</em>'}'</li>
 			 *   <li>'{'@link {0}.impl.Xmod_ExceptionImpl#getCalledOperation <em>Called Operation</em>'}'</li>
 			 * </ul>
 			 *
-			 * @generated
+			 * @generated NOT
 			 */
 			public class Xmod_ExceptionImpl extends MinimalEObjectImpl.Container implements Xmod_Exception '{'
 				/**
-				 * The default value of the '''{'@link #getLiteral() <em>Literal</em>'}''' attribute.
+				 * The default value of the '''{'@link #getKind() <em>Kind</em>'}''' attribute.
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @see #getLiteral()
-				 * @generated
+				 * @see #getKind()
+				 * @generated NOT
 				 * @ordered
 				 */
-				protected static final Xmod_ExceptionLiteral LITERAL_EDEFAULT = Xmod_ExceptionLiteral.OK;
+				protected static final Xmod_ExceptionKind KIND_EDEFAULT = Xmod_ExceptionKind.OK;
 			
 				/**
-				 * The cached value of the '''{'@link #getLiteral() <em>Literal</em>'}''' attribute.
+				 * The cached value of the '''{'@link #getKind() <em>Kind</em>'}''' attribute.
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @see #getLiteral()
-				 * @generated
+				 * @see #getKind()
+				 * @generated NOT
 				 * @ordered
 				 */
-				protected Xmod_ExceptionLiteral literal = LITERAL_EDEFAULT;
+				protected Xmod_ExceptionKind kind = KIND_EDEFAULT;
 			
 				/**
 				 * The default value of the '''{'@link #getFilter() <em>Filter</em>'}''' attribute.
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
 				 * @see #getFilter()
-				 * @generated
+				 * @generated NOT
 				 * @ordered
 				 */
 				protected static final String FILTER_EDEFAULT = null;
@@ -78,7 +78,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
 				 * @see #getFilter()
-				 * @generated
+				 * @generated NOT
 				 * @ordered
 				 */
 				protected String filter = FILTER_EDEFAULT;
@@ -88,7 +88,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
 				 * @see #getReaction()
-				 * @generated
+				 * @generated NOT
 				 * @ordered
 				 */
 				protected static final Xmod_ExceptionReaction REACTION_EDEFAULT = Xmod_ExceptionReaction.CONTINUE;
@@ -98,7 +98,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
 				 * @see #getReaction()
-				 * @generated
+				 * @generated NOT
 				 * @ordered
 				 */
 				protected Xmod_ExceptionReaction reaction = REACTION_EDEFAULT;
@@ -108,7 +108,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
 				 * @see #getCalledOperation()
-				 * @generated
+				 * @generated NOT
 				 * @ordered
 				 */
 				protected Xmod_Operation calledOperation;
@@ -116,7 +116,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				protected Xmod_ExceptionImpl() '{'
 					super();
@@ -125,7 +125,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
 				protected EClass eStaticClass() '{'
@@ -135,30 +135,30 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
-				public Xmod_ExceptionLiteral getLiteral() '{'
-					return literal;
+				public Xmod_ExceptionKind getKind() '{'
+					return kind;
 				'}'
 			
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
-				public void setLiteral(Xmod_ExceptionLiteral newLiteral) '{'
-					Xmod_ExceptionLiteral oldLiteral = literal;
-					literal = newLiteral == null ? LITERAL_EDEFAULT : newLiteral;
+				public void setKind(Xmod_ExceptionKind newKind) '{'
+					Xmod_ExceptionKind oldKind = kind;
+					kind = newKind == null ? KIND_EDEFAULT : newKind;
 					if (eNotificationRequired())
-						eNotify(new ENotificationImpl(this, Notification.SET, {1}Package.XMOD_EXCEPTION__LITERAL, oldLiteral, literal));
+						eNotify(new ENotificationImpl(this, Notification.SET, {1}Package.XMOD_EXCEPTION__KIND, oldKind, kind));
 				'}'
 			
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
 				public String getFilter() '{'
@@ -168,7 +168,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
 				public void setFilter(String newFilter) '{'
@@ -181,7 +181,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
 				public Xmod_ExceptionReaction getReaction() '{'
@@ -191,7 +191,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
 				public void setReaction(Xmod_ExceptionReaction newReaction) '{'
@@ -204,7 +204,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
 				public Xmod_Operation getCalledOperation() '{'
@@ -214,7 +214,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				public NotificationChain basicSetCalledOperation(Xmod_Operation newCalledOperation, NotificationChain msgs) '{'
 					Xmod_Operation oldCalledOperation = calledOperation;
@@ -229,7 +229,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
 				public void setCalledOperation(Xmod_Operation newCalledOperation) '{'
@@ -249,7 +249,7 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
 				public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) '{'
@@ -263,13 +263,13 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
 				public Object eGet(int featureID, boolean resolve, boolean coreType) '{'
 					switch (featureID) '{'
-						case {1}Package.XMOD_EXCEPTION__LITERAL:
-							return getLiteral();
+						case {1}Package.XMOD_EXCEPTION__KIND:
+							return getKind();
 						case {1}Package.XMOD_EXCEPTION__FILTER:
 							return getFilter();
 						case {1}Package.XMOD_EXCEPTION__REACTION:
@@ -283,13 +283,13 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
 				public void eSet(int featureID, Object newValue) '{'
 					switch (featureID) '{'
-						case {1}Package.XMOD_EXCEPTION__LITERAL:
-							setLiteral((Xmod_ExceptionLiteral)newValue);
+						case {1}Package.XMOD_EXCEPTION__KIND:
+							setKind((Xmod_ExceptionKind)newValue);
 							return;
 						case {1}Package.XMOD_EXCEPTION__FILTER:
 							setFilter((String)newValue);
@@ -307,13 +307,13 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
 				public void eUnset(int featureID) '{'
 					switch (featureID) '{'
-						case {1}Package.XMOD_EXCEPTION__LITERAL:
-							setLiteral(LITERAL_EDEFAULT);
+						case {1}Package.XMOD_EXCEPTION__KIND:
+							setKind(KIND_EDEFAULT);
 							return;
 						case {1}Package.XMOD_EXCEPTION__FILTER:
 							setFilter(FILTER_EDEFAULT);
@@ -331,13 +331,13 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
 				public boolean eIsSet(int featureID) '{'
 					switch (featureID) '{'
-						case {1}Package.XMOD_EXCEPTION__LITERAL:
-							return literal != LITERAL_EDEFAULT;
+						case {1}Package.XMOD_EXCEPTION__KIND:
+							return kind != KIND_EDEFAULT;
 						case {1}Package.XMOD_EXCEPTION__FILTER:
 							return FILTER_EDEFAULT == null ? filter != null : !FILTER_EDEFAULT.equals(filter);
 						case {1}Package.XMOD_EXCEPTION__REACTION:
@@ -351,15 +351,15 @@ public class Xmod_ExceptionImplContent implements FileContent {
 				/**
 				 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
-				 * @generated
+				 * @generated NOT
 				 */
 				@Override
 				public String toString() '{'
 					if (eIsProxy()) return super.toString();
 			
 					StringBuilder result = new StringBuilder(super.toString());
-					result.append(" (literal: ");
-					result.append(literal);
+					result.append(" (kind: ");
+					result.append(kind);
 					result.append(", filter: ");
 					result.append(filter);
 					result.append(", reaction: ");

@@ -27,7 +27,7 @@ public class Xmod_ActionImplContent implements FileContent {
             import {0}.{1}Package;
             import {0}.Xmod_Action;
             import {0}.Xmod_Exception;
-            import {0}.Xmod_ExceptionLiteral;
+            import {0}.Xmod_ExceptionKind;
             import {0}.Xmod_ExceptionReaction;
             import {0}.Xmod_Operation;
             
@@ -42,7 +42,7 @@ public class Xmod_ActionImplContent implements FileContent {
              *   <li>'{'@link {0}.impl.Xmod_ActionImpl#getOperations <em>Operations</em>'}'</li>
              * </ul>
              *
-             * @generated
+             * @generated NOT
              */
             public class Xmod_ActionImpl extends Xmod_ElementImpl implements Xmod_Action '{'
                 /**
@@ -50,7 +50,7 @@ public class Xmod_ActionImplContent implements FileContent {
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
                  * @see #getOperations()
-                 * @generated
+                 * @generated NOT
                  * @ordered
                  */
                 protected EList<Xmod_Operation> operations;
@@ -58,7 +58,7 @@ public class Xmod_ActionImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 protected Xmod_ActionImpl() '{'
                     super();
@@ -67,7 +67,7 @@ public class Xmod_ActionImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 protected EClass eStaticClass() '{'
@@ -77,7 +77,7 @@ public class Xmod_ActionImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public EList<Xmod_Operation> getOperations() '{'
@@ -120,7 +120,7 @@ public class Xmod_ActionImplContent implements FileContent {
                 private Xmod_Exception executeSingle(Xmod_Operation op) '{'
                     Xmod_Exception xme = op.callOperation();
             
-                    if (xme.getLiteral() != Xmod_ExceptionLiteral.OK && xme.getCalledOperation() != null) '{'
+                    if (xme.getKind() != Xmod_ExceptionKind.OK && xme.getCalledOperation() != null) '{'
                         Xmod_Exception lowerXme = executeSingle(xme.getCalledOperation());
                         // comparing the current selected reaction with the lower one using their ordinal as weight
                         xme = xme.getReaction().getValue() > lowerXme.getReaction().getValue() ? xme : lowerXme;
@@ -132,7 +132,7 @@ public class Xmod_ActionImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) '{'
@@ -146,7 +146,7 @@ public class Xmod_ActionImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public Object eGet(int featureID, boolean resolve, boolean coreType) '{'
@@ -160,7 +160,7 @@ public class Xmod_ActionImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @SuppressWarnings("unchecked")
                 @Override
@@ -177,7 +177,7 @@ public class Xmod_ActionImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public void eUnset(int featureID) '{'
@@ -192,7 +192,7 @@ public class Xmod_ActionImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public boolean eIsSet(int featureID) '{'
@@ -206,7 +206,7 @@ public class Xmod_ActionImplContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException '{'

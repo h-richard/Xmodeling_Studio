@@ -103,7 +103,7 @@ public class Xmod_ExceptionReactionContent implements FileContent {
                  * A public read-only list of all the ''<em><b>Xmod Exception Reaction</b></em>'' enumerators.
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 public static final List<Xmod_ExceptionReaction> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
             
@@ -113,7 +113,7 @@ public class Xmod_ExceptionReactionContent implements FileContent {
                  * <!-- end-user-doc -->
                  * @param literal the literal.
                  * @return the matching enumerator or <code>null</code>.
-                 * @generated
+                 * @generated NOT
                  */
                 public static Xmod_ExceptionReaction get(String literal) '{'
                     for (int i = 0; i < VALUES_ARRAY.length; ++i) '{'
@@ -130,7 +130,7 @@ public class Xmod_ExceptionReactionContent implements FileContent {
                  * <!-- end-user-doc -->
                  * @param name the name.
                  * @return the matching enumerator or <code>null</code>.
-                 * @generated
+                 * @generated NOT
                  */
                 public static Xmod_ExceptionReaction getByName(String name) '{'
                     for (int i = 0; i < VALUES_ARRAY.length; ++i) '{'
@@ -161,21 +161,21 @@ public class Xmod_ExceptionReactionContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 private final int value;
             
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 private final String name;
             
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 private final String literal;
             
@@ -183,7 +183,7 @@ public class Xmod_ExceptionReactionContent implements FileContent {
                  * Only this class can construct instances.
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 private Xmod_ExceptionReaction(int value, String name, String literal) '{'
                     this.value = value;
@@ -194,7 +194,7 @@ public class Xmod_ExceptionReactionContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public int getValue() '{'
@@ -204,7 +204,7 @@ public class Xmod_ExceptionReactionContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public String getName() '{'
@@ -214,7 +214,7 @@ public class Xmod_ExceptionReactionContent implements FileContent {
                 /**
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public String getLiteral() '{'
@@ -225,7 +225,7 @@ public class Xmod_ExceptionReactionContent implements FileContent {
                  * Returns the literal value of the enumerator, which is its string representation.
                  * <!-- begin-user-doc -->
                  * <!-- end-user-doc -->
-                 * @generated
+                 * @generated NOT
                  */
                 @Override
                 public String toString() '{'

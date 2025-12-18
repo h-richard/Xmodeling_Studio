@@ -13,6 +13,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.*;
@@ -33,7 +34,7 @@ public class XmodelingTransformationEngine {
      * other metamodel after concatenation
      *
      * @return ArrayList<EClass> the list of all elements from the workflow
-     * 			metamodel.
+     * metamodel.
      */
     @SuppressWarnings("unchecked")
     protected HashMap<String, EClassifier> getWorkflowElements() {
@@ -49,7 +50,7 @@ public class XmodelingTransformationEngine {
 
         // enums
         EEnum Xmod_ExceptionReaction = factory.createEEnum();
-        EEnum Xmod_ExceptionLiteral = factory.createEEnum();
+        EEnum Xmod_ExceptionKind = factory.createEEnum();
 
         // references
         EReference operationsRef = factory.createEReference();
@@ -62,9 +63,10 @@ public class XmodelingTransformationEngine {
         EAttribute parametersOperation = factory.createEAttribute();
         EAttribute returnOperation = factory.createEAttribute();
         EAttribute xmod_id = factory.createEAttribute();
-        EAttribute literal = factory.createEAttribute();
+        EAttribute kind = factory.createEAttribute();
         EAttribute filter = factory.createEAttribute();
         EAttribute reaction = factory.createEAttribute();
+        EAttribute actionName = factory.createEAttribute();
 
         // operations
         EOperation execute = factory.createEOperation();
@@ -75,25 +77,25 @@ public class XmodelingTransformationEngine {
         /******************/
         Xmod_Operation.setName("Xmod_Operation");
 
-        // attribut nameOperation
+        // attribute nameOperation
         nameOperation.setName("name");
         nameOperation.setLowerBound(1);
         nameOperation.setUpperBound(1);
         nameOperation.setEType(pack.getEString());
 
-        // attribut objectOperation
+        // attribute objectOperation
         objectOperation.setName("objectTag");
         objectOperation.setLowerBound(1);
         objectOperation.setUpperBound(1);
         objectOperation.setEType(pack.getEString());
 
-        // attribut parametersOperation
+        // attribute parametersOperation
         parametersOperation.setName("parametersTag");
         parametersOperation.setLowerBound(0);
         parametersOperation.setUpperBound(-1);
         parametersOperation.setEType(pack.getEString());
 
-        // attribut returnOperation
+        // attribute returnOperation
         returnOperation.setName("returnTag");
         returnOperation.setLowerBound(0);
         returnOperation.setUpperBound(1);
@@ -124,6 +126,12 @@ public class XmodelingTransformationEngine {
         /***************/
         Xmod_Action.setName("Xmod_Action");
 
+        // attribute
+        actionName.setName("name");
+        actionName.setLowerBound(1);
+        actionName.setUpperBound(1);
+        actionName.setEType(pack.getEString());
+
         // reference operations
         operationsRef.setEType(Xmod_Operation);
         operationsRef.setLowerBound(1);
@@ -137,42 +145,42 @@ public class XmodelingTransformationEngine {
         execute.setUpperBound(1);
         execute.setEType(Xmod_ExceptionReaction);
 
+        Xmod_Action.getEStructuralFeatures().add(actionName);
         Xmod_Action.getEStructuralFeatures().add(operationsRef);
         Xmod_Action.getEOperations().add(execute);
-
-        Xmod_Action.getESuperTypes().add(Xmod_Element);
 
         /***************/
         /* Xmod_Element */
         /***************/
         Xmod_Element.setName("Xmod_Element");
 
-        // attribut xmod_id
+        // attribute xmod_id
         xmod_id.setName("xmod_id");
         xmod_id.setLowerBound(0);
         xmod_id.setUpperBound(1);
         xmod_id.setEType(pack.getEString());
 
         Xmod_Element.getEStructuralFeatures().add(xmod_id);
+        Xmod_Element.setAbstract(true);
 
         /***************/
         /* Xmod_Exception */
         /***************/
         Xmod_Exception.setName("Xmod_Exception");
 
-        // attribut literal
-        literal.setName("literal");
-        literal.setLowerBound(1);
-        literal.setUpperBound(1);
-        literal.setEType(Xmod_ExceptionLiteral);
+        // attribute kind
+        kind.setName("kind");
+        kind.setLowerBound(1);
+        kind.setUpperBound(1);
+        kind.setEType(Xmod_ExceptionKind);
 
-        // attribut filter
+        // attribute filter
         filter.setName("filter");
         filter.setLowerBound(0);
         filter.setUpperBound(1);
         filter.setEType(pack.getEString());
 
-        // attribut reaction
+        // attribute reaction
         reaction.setName("reaction");
         reaction.setLowerBound(1);
         reaction.setUpperBound(1);
@@ -183,57 +191,57 @@ public class XmodelingTransformationEngine {
         calledOperationRef.setLowerBound(0);
         calledOperationRef.setUpperBound(1);
         calledOperationRef.setContainment(true);
-        calledOperationRef.setEType(pack.getEString());
+        calledOperationRef.setName("calledOperation");
 
-        Xmod_Exception.getEStructuralFeatures().add(literal);
+        Xmod_Exception.getEStructuralFeatures().add(kind);
         Xmod_Exception.getEStructuralFeatures().add(filter);
         Xmod_Exception.getEStructuralFeatures().add(reaction);
         Xmod_Exception.getEStructuralFeatures().add(calledOperationRef);
 
         /***************/
-        /* Xmod_ExceptionLiteral */
+        /* Xmod_ExceptionKind */
         /***************/
-        Xmod_ExceptionLiteral.setName("Xmod_ExceptionLiteral");
+        Xmod_ExceptionKind.setName("Xmod_ExceptionKind");
 
         EEnumLiteral ok = factory.createEEnumLiteral();
         ok.setName("ok");
         ok.setValue(0);
-        Xmod_ExceptionLiteral.getELiterals().add(ok);
+        Xmod_ExceptionKind.getELiterals().add(ok);
 
-        EEnumLiteral unknownTag = factory.createEEnumLiteral();
-        unknownTag.setName("unknownTag");
-        unknownTag.setValue(1);
-        Xmod_ExceptionLiteral.getELiterals().add(unknownTag);
+        EEnumLiteral unknownNamespace = factory.createEEnumLiteral();
+        unknownNamespace.setName("unknownNamespace");
+        unknownNamespace.setValue(1);
+        Xmod_ExceptionKind.getELiterals().add(unknownNamespace);
 
         EEnumLiteral objectNotFound = factory.createEEnumLiteral();
         objectNotFound.setName("objectNotFound");
         objectNotFound.setValue(2);
-        Xmod_ExceptionLiteral.getELiterals().add(objectNotFound);
+        Xmod_ExceptionKind.getELiterals().add(objectNotFound);
 
         EEnumLiteral methodNotFound = factory.createEEnumLiteral();
         methodNotFound.setName("methodNotFound");
         methodNotFound.setValue(3);
-        Xmod_ExceptionLiteral.getELiterals().add(methodNotFound);
+        Xmod_ExceptionKind.getELiterals().add(methodNotFound);
 
         EEnumLiteral parametersNotMatching = factory.createEEnumLiteral();
         parametersNotMatching.setName("parametersNotMatching");
         parametersNotMatching.setValue(4);
-        Xmod_ExceptionLiteral.getELiterals().add(parametersNotMatching);
+        Xmod_ExceptionKind.getELiterals().add(parametersNotMatching);
 
         EEnumLiteral returnTypeNotMatching = factory.createEEnumLiteral();
         returnTypeNotMatching.setName("returnTypeNotMatching");
         returnTypeNotMatching.setValue(5);
-        Xmod_ExceptionLiteral.getELiterals().add(returnTypeNotMatching);
+        Xmod_ExceptionKind.getELiterals().add(returnTypeNotMatching);
 
         EEnumLiteral methodException = factory.createEEnumLiteral();
         methodException.setName("methodException");
         methodException.setValue(6);
-        Xmod_ExceptionLiteral.getELiterals().add(methodException);
+        Xmod_ExceptionKind.getELiterals().add(methodException);
 
         EEnumLiteral other = factory.createEEnumLiteral();
         other.setName("other");
         other.setValue(7);
-        Xmod_ExceptionLiteral.getELiterals().add(other);
+        Xmod_ExceptionKind.getELiterals().add(other);
 
         /***************/
         /* Xmod_ExceptionReaction */
@@ -256,18 +264,17 @@ public class XmodelingTransformationEngine {
         Xmod_ExceptionReaction.getELiterals().add(exit);
 
 
-
         HashMap<String, EClassifier> xmodClasses = new HashMap<>();
         xmodClasses.put("operation", Xmod_Operation);
         xmodClasses.put("action", Xmod_Action);
         xmodClasses.put("element", Xmod_Element);
         xmodClasses.put("exception", Xmod_Exception);
         xmodClasses.put("exReaction", Xmod_ExceptionReaction);
-        xmodClasses.put("exLiteral", Xmod_ExceptionLiteral);
+        xmodClasses.put("exKind", Xmod_ExceptionKind);
 
         return (HashMap<String, EClassifier>) xmodClasses.clone();
     }
-    
+
     /**
      * <p>modifyMetaModel has two purposes :
      * <ul>
@@ -276,10 +283,8 @@ public class XmodelingTransformationEngine {
      * </ul>
      * </p>
      *
-     * @param mmSource
-     *            file containing the original metamodel
-     * @param mmTarget
-     *            file in which the modified metamodel is saved
+     * @param mmSource file containing the original metamodel
+     * @param mmTarget file in which the modified metamodel is saved
      * @throws IOException
      * @throws CoreException
      * @see XmodelingTransformationEngine#getWorkflowElements()
@@ -288,6 +293,7 @@ public class XmodelingTransformationEngine {
 
         /* Init */
         String projectName = "";
+        String projectClass = "";
         EcoreFactory factory = EcoreFactory.eINSTANCE;
 
         // loading of the original MM
@@ -314,6 +320,8 @@ public class XmodelingTransformationEngine {
             // if we find the package of the MM, we add all the new classes
             if (eobject instanceof EPackage pack) {
                 projectName = pack.getName();
+                // a class name begins with an upper-case letter, so we format it
+                projectClass = projectName.substring(0, 1).toUpperCase() + projectName.substring(1);
                 for (EClassifier classif : xmodClasses.values())
                     pack.getEClassifiers().add(classif);
             }
@@ -348,77 +356,94 @@ public class XmodelingTransformationEngine {
 
                 // if a class owns an annotation "Xmod_main" => root class
                 if (source.equals("Xmod_main")) {
-
                     File proj;
-                    
+
                     // trying to retrieve the project directory using eclipse's workspace
                     try {
-                    	IWorkspace ws = ResourcesPlugin.getWorkspace();
-                    	IProject iproj = ws.getRoot().getProject(projectName);
-                    	proj = iproj.getLocation().toFile();
+                        IWorkspace ws = ResourcesPlugin.getWorkspace();
+                        IPath ipath = ws.getRoot().getProject(projectName).getLocation();
+                        if (ipath == null) ws.getRoot().getProject(projectClass).getLocation();
+                        if (ipath == null) throw new IllegalStateException();
+                        proj = ipath.toFile();
                     }
                     // attempt failed (usually when running outside eclipse environment)
                     // using file system instead
                     catch (IllegalStateException ise) {
-                    	proj = XmodelingFilesManager.findProjectUpwards(mmTarget, projectName);
+                        proj = XmodelingFilesManager.findProjectUpwards(mmTarget, projectName);
+                        if (proj == null) proj = XmodelingFilesManager.findProjectUpwards(mmTarget, projectClass);
+                        if (proj == null) {
+                            System.out.println("Project name is not consistent with meta-model name.");
+                            return;
+                        }
                     }
-                    
+
                     // looking for the source folder (usually named 'src' or 'src-gen')
-                    Path sourceFolder = XmodelingFilesManager.findFolder(proj, "src").toPath();
-                    if (sourceFolder == null) sourceFolder = XmodelingFilesManager.findFolder(proj, "src-gen").toPath();
-                    if (sourceFolder == null) {
-                    	System.out.println("Source folder not found.");
-                    	return;
+                    File sourceFolderFile = XmodelingFilesManager.findFolder(proj, "src");
+                    if (sourceFolderFile == null) sourceFolderFile = XmodelingFilesManager.findFolder(proj, "src-gen");
+                    if (sourceFolderFile == null) {
+                        System.out.println("Source folder not found.");
+                        return;
                     }
-                    
+                    Path sourceFolder = sourceFolderFile.toPath();
+
                     // creating the project folders if they dont exist
                     Path mainFolder = sourceFolder.resolve(projectName);
                     Path implFolder = sourceFolder.resolve(projectName + File.separatorChar + "impl");
                     Path utilsFolder = sourceFolder.resolve(projectName + File.separatorChar + "util");
-                    
-                    
-                    // a class name begins with an upper-case letter, so we format it
-                    String projectClass = projectName.substring(0,1).toUpperCase() + projectName.substring(1);
+                    Path exceptionsFolder = sourceFolder.resolve("exceptions");
+
                     XmodelingFilesManager fm = new XmodelingFilesManager(projectName, projectClass);
-                    
+
                     // Project
                     Files.createDirectories(mainFolder);
                     fm.createFile(mainFolder, "Xmod_Action.java");
                     fm.createFile(mainFolder, "Xmod_Operation.java");
                     fm.createFile(mainFolder, "Xmod_Element.java");
                     fm.createFile(mainFolder, "Xmod_Exception.java");
-                    fm.createFile(mainFolder, "Xmod_ExceptionLiteral.java");
+                    fm.createFile(mainFolder, "Xmod_ExceptionKind.java");
                     fm.createFile(mainFolder, "Xmod_ExceptionReaction.java");
-                    
+
                     // Project.impl
                     Files.createDirectories(implFolder);
                     fm.createFile(implFolder, "Xmod_ActionImpl.java");
                     fm.createFile(implFolder, "Xmod_OperationImpl.java");
                     fm.createFile(implFolder, "Xmod_ElementImpl.java");
                     fm.createFile(implFolder, "Xmod_ExceptionImpl.java");
-                    
+
                     // Project.util
                     Files.createDirectories(utilsFolder);
                     fm.createUtilsFile(utilsFolder, projectClass + "Utils.java", ecls.getName());
-                    
+
+                    // exceptions
+                    Files.createDirectories(exceptionsFolder);
+                    fm.createFile(exceptionsFolder, "Xmod_ExceptionContext.java");
+                    fm.createFile(exceptionsFolder, "Xmod_UnknownNamespaceException.java");
+                    fm.createFile(exceptionsFolder, "Xmod_ObjectNotFoundException.java");
+                    fm.createFile(exceptionsFolder, "Xmod_MethodNotFoundException.java");
+                    fm.createFile(exceptionsFolder, "Xmod_ParametersNotMatchingException.java");
+                    fm.createFile(exceptionsFolder, "Xmod_ReturnTypeNotMatchingException.java");
+
                     // Xtext
                     int index = mmTarget.indexOf(projectName + File.separatorChar);
                     if (index == -1) index = mmTarget.indexOf(projectName + '/');
+                    if (index == -1) index = mmTarget.indexOf(projectClass + File.separatorChar);
+                    if (index == -1) index = mmTarget.indexOf(projectClass + '/');
                     if (index == -1) {
-                    	System.out.println("Could not find a relative path to metamodel");
-                    	return;
+                        System.out.println("Could not find a relative path to metamodel");
+                        return;
                     }
 
+                    // relative path to the metamodel file (.ecore)
                     Path mmRelativePath = Path.of(mmTarget.substring(index));
-                    
+
                     Path xtextFolder = proj.toPath().resolve("xtext");
                     Path xtextValidationFolder = proj.toPath().resolve("xtext" + File.separatorChar + "validation");
-                    
+
                     Files.createDirectories(xtextFolder);
-                    fm.createXtextFile(xtextFolder, "XmodGrammar.xtext", mmRelativePath);
-                    
+                    fm.createXtextFile(xtextFolder, "XtextGrammar.xtext", mmRelativePath);
+
                     Files.createDirectories(xtextValidationFolder);
-                    fm.createFile(xtextValidationFolder, "XmodValidator.xtext");
+                    fm.createFile(xtextValidationFolder, "XtextValidator.xtext");
                 }
             }
         }
@@ -430,9 +455,8 @@ public class XmodelingTransformationEngine {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null,
-                    "Impossible to save the modified model", "Error",
+                    "Could not save the modified model", "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
     }
-
 }
