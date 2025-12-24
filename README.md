@@ -1,5 +1,9 @@
 Xmodeling Studio is an EMF plugin for adding operation calls on any executable DSL (xDSL) and to execute automatically these operations during the interpretation of a model by the execution engine of the xDSL.
 
+## Documentation
+
+The documentation will be available in the [Wiki](https://github.com/h-richard/Xmodeling_Studio/wiki)
+
 ## Contributors
 
 Xmodeling Studio has been originally developped by Léa Brunschwig, Eric Cariou and Olivier Le Goaer from the university of Pau/LIUPPA, France.
