@@ -2,7 +2,7 @@ Xmodeling Studio is an EMF plugin for adding operation calls on any executable D
 
 ## Documentation
 
-The documentation will be available in the [Wiki](https://github.com/h-richard/Xmodeling_Studio/wiki)
+The documentation is available in the [Wiki](https://github.com/h-richard/Xmodeling_Studio/wiki)
 
 ## Contributors
 
